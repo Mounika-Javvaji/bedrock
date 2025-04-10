@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'; // Make sure to create this CSS file
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -12,10 +13,9 @@ function App() {
     setMessages([...messages, userMessage]);
 
     try {
-      const response = await fetch(API_ENDPOINT, {
-        method: 'POST',
+      const response = await fetch(`${API_ENDPOINT}/ask?question=${encodeURIComponent(userInput)}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: userInput })
       });
 
       const data = await response.json();
