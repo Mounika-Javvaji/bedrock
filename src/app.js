@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'; // Make sure to create this CSS file
+import './app.css'; // Make sure to create this CSS file
 
 function App() {
   const [messages, setMessages] = useState([]);
